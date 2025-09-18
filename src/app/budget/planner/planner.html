@@ -1,0 +1,18 @@
+<div class="max-w-2xl mx-auto bg-white p-6 shadow-md rounded-lg">
+  <h2 class="text-xl font-bold mb-4">Wedding Budget Planner</h2>
+
+  <div class="mb-4">
+    <p class="font-semibold">Total Budget: ₹{{ budget.totalBudget }}</p>
+    <p>Spent: ₹{{ getTotalSpent() }}</p>
+  </div>
+
+  <div *ngFor="let category of budget.categories" class="border p-3 rounded mb-2">
+    <input [(ngModel)]="category.name" placeholder="Category Name" class="w-full p-2 border rounded mb-2" />
+    <input type="number" [(ngModel)]="category.planned" placeholder="Planned" class="w-full p-2 border rounded mb-2" />
+    <input type="number" [(ngModel)]="category.spent" placeholder="Spent" class="w-full p-2 border rounded" />
+  </div>
+
+  <button (click)="addCategory()" class="mt-4 bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600">
+    Add Category
+  </button>
+</div>
